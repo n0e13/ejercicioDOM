@@ -299,12 +299,12 @@ for (let i = 0; i < libros.length; i++) {
     let eDivTxt = document.createElement('div');
 
     // Creamos y añadimos el texto de cada elemento
-    let eTituloTxt = document.createTextNode(libros[i].title);
-    let eAutorTxt = document.createTextNode(libros[i].author);
-    let ePaisTxt = document.createTextNode(libros[i].country);
+    let eTituloTxt = document.createTextNode(`Titulo: ${libros[i].title}`);
+    let eAutorTxt = document.createTextNode(`Autor: ${libros[i].author}`);
+    let ePaisTxt = document.createTextNode(`País: ${libros[i].country}`);
     let eImgTxt = document.createTextNode(libros[i].imageLink);
-    let eLenguaTxt = document.createTextNode(libros[i].language);
-    let eYearTxt = document.createTextNode(libros[i].year);
+    let eLenguaTxt = document.createTextNode(`Idioma: ${libros[i].language}`);
+    let eYearTxt = document.createTextNode(`Año: ${libros[i].year}`);
 
     eTitulo.appendChild(eTituloTxt);
     eAutor.appendChild(eAutorTxt);
@@ -380,14 +380,15 @@ document.body.appendChild(eSection);
 
 
 let aArticles = document.getElementsByClassName("libro");
+eSection.style = "display: flex; flex-direction: row; flex-wrap: wrap";
 for (let i = 0; i < aArticles.length; i++) {
     let aImg = document.getElementsByClassName("libro_img");
     let aDivImg = document.getElementsByClassName("libr_box_img");
     let aDivTxt = document.getElementsByClassName("libr_box_txt");
 
-    aImg[i].style = "width: 50%; height: 50%;";
-    aDivImg[i].style = "border: 2px solid green";
-    aDivTxt[i].style = "border: 2px solid blue";
-    aArticles[i].style = "display:flex; flex-direction:row; width:500px; heigth:400px; border: 2px solid red";
+    aImg[i].style = "height: 250px; width:250px; border-radius: 50%";
+    aDivImg[i].style = "width: 50%; align-self: center";
+    aDivTxt[i].style = "width: 50%; margin: 0px 15px; align-self: center";
+    aArticles[i].style = "width: 500px; margin: 0.75em; padding: 1em; display:flex; flex-direction:row; border: 2px dotted black";
 }
 

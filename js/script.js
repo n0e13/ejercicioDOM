@@ -276,7 +276,20 @@ let libros = [
     </article>
 </section> */}
 
-
+// Forma corta de hacerlo con una plantilla
+// const section = document.createElement('section');
+// for (let i = 0; i < libros.length; i++) {
+//     const article = document.createElement('article');
+//     article.innerHTML = `<h3>Title: ${libros[i]['title']}</h3>
+//                              <p>Author: ${libros[i]['author']}</p>
+//                              <p>Country: ${libros[i]['country']}</p>
+//                              <img src='${libros[i]['imageLink']}'>
+//                              <p>Language: ${libros[i]['language']}</p>
+//                              <p>Year: ${libros[i]['year']}</p>
+//                              <p>Pages: ${libros[i]['pages']}</p>`;
+//     section.appendChild(article)
+// }
+// body.appendChild(section);
 
 // Creamos la sección y le ponemos una clase
 let eSection = document.createElement('section');
@@ -391,4 +404,49 @@ for (let i = 0; i < aArticles.length; i++) {
     aDivTxt[i].style = "width: 50%; margin: 0px 15px; align-self: center";
     aArticles[i].style = "width: 500px; margin: 0.75em; padding: 1em; display:flex; flex-direction:row; border: 2px dotted black";
 }
+
+
+
+// Validación de formularios
+//document.querySelector("#form_rock") // si usara el ID
+document.querySelector("form[name='form_rock']").addEventListener('submit', function (event) {
+    // Dr strange
+    event.preventDefault(); // Frena el envío de formulario
+
+    const fname = event.target.fname.value;
+    const lname = event.target.lname.value;
+    const email = event.target.email.value;
+    const checked = event.target.accept.checked;
+    const radio = event.target.fav_genre.value;
+
+    //Caja de aviso
+    let eBox = document.getElementById("validation");
+    let eBoxTxt = "";
+    document.getElementById("eParrafada").style.display = "none"
+
+    // para quitar espacios en blanco ponemos el .trim()
+    if (!checked) {
+        eBoxTxt = "debes aceptar los términos";
+        eBox.style = "border: 2px solid orange";
+    } else if (!radio) {
+        eBoxTxt = "debes elegir un género";
+        eBox.style = "border: 2px solid orange";
+    } else if (fname.trim() != "" && lname.trim() != "" && email != "" && email.endsWith(".com")) {
+        // aquí reanudo el envío del formulario
+        // event.target.submit();
+
+        eBoxTxt = "datos correctos";
+        eBox.style = "border: 2px solid green";
+
+    } else {
+        eBoxTxt = "datos incorrectos";
+        eBox.style = "border: 2px solid red";
+    }
+
+    document.getElementById("eParrafada").style.display = "block"
+    eBox.innerHTML = eBoxTxt;
+})
+
+
+
 

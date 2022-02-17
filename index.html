@@ -42,7 +42,44 @@
 
     <button id="bBorrar">Borrar lista</button>
 
-    <script src="./js/script.js"></script>
+    <section id="contact">
+        <h2>Contacto</h2>
+        <form name="form_rock">
+            <h5>Tus datos:</h5>
+            <label for="fname">Nombre:</label>
+            <input type="text" id="fname" name="fname" maxlength="16" placeholder="Ingresa tu nombre" required>
+            <label for="lname">Apellidos:</label>
+            <input type="text" id="lname" name="lname" maxlength="16" placeholder="Ingresa tus apellidos" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Ingresa tu email" required>
+            <h5>Género favorito:</h5>
+            <div class="check">
+                <input type="radio" id="glam" name="fav_genre" value="glam">
+                <label for="glam">Glam Rock</label>
+            </div>
+            <div class="check">
+                <input type="radio" id="grunge" name="fav_genre" value="grunge">
+                <label for="grunge">Grunge</label>
+            </div>
+            <div class="check">
+                <input type="radio" id="hard" name="fav_genre" value="hard">
+                <label for="hard">Hard Rock</label>
+            </div>
+            <h5>Comentarios:</h5>
+            <textarea id="comment" name="comment" rows="8" cols="50" placeholder="comentarios aquí..."></textarea>
+            <div class="check">
+                <input type="checkbox" id="accept" name="accept" value="">
+                <label for="accept"> Acepto las condiciones de uso</label>
+            </div>
+            <div class="check">
+                <input type="checkbox" id="ads" name="ads" value="Car">
+                <label for="ads"> Permito que me manden publicidad</label>
+            </div>
+            <input type="submit" value="Enviar">
+        </form>
+        <p id="validation"></p>
+
+        <script src="./js/script.js"></script>
 </body>
 
 </html>
